@@ -1,6 +1,5 @@
-public class App implements EventLogger{
+public class App {
     private Client client;
-    private ConsoleEventLogger consoleEventLogger;
     private EventLogger eventLogger;
 
     public App() {
@@ -12,8 +11,12 @@ public class App implements EventLogger{
     }
 
     public static void main(String[] args) {
+        App app = new App();
 
-//        app.logEvent("Some event for user 1");
+        app.client = new Client("1", "John Smith");
+
+        app.eventLogger = new ConsoleEventLogger();
+        app.logEvent("Some event for user 1");
     }
 
     public void logEvent(String msg) {
